@@ -1,0 +1,97 @@
+.heading-logo img
+{
+  width: 160px;
+  height: 110px;
+  
+}
+.heading-logo h2
+{
+  margin: -18px 0px 0px 2px;
+  font-size: 30px;
+}
+
+
+.adss
+{
+  width: 100%;
+}
+.border-below
+{
+  border-bottom: 3px solid rgb(243, 230, 230);
+  margin-top: 5px;
+  padding-top: 10px;
+}
+.heading-fonts
+{
+  font-size: 15px;
+  text-shadow: red;
+}
+.btm-border
+{
+  border-bottom: 7px solid red;
+  padding-top: 10px;
+  border-top: 3px solid red;
+}
+
+.pradesh-map
+{
+  width: 130px;
+  height: 140px;
+  border: 2px solid rgb(201, 238, 184);
+  border-radius: 8px;
+  border-color: black;
+  
+}
+.pradesh-map:hover
+{
+  width: 133px;
+  height: 145px;
+  border-color: red;
+  transition:0.8s
+  
+}
+.slide-size
+{
+  width: auto;
+  height: 400px;
+  border-radius: 5px;
+  margin-bottom: 15px;
+}
+.address
+{
+  list-style: none;
+  text-align: justify;
+  padding: 5px;
+  
+}
+
+.icons i
+{
+  padding: 10px;
+  justify-content: space-between;
+  font-size: 28px;
+  border-radius: 100%;
+}
+.icons, li
+{
+  list-style: none;
+  margin-left: 0px;
+}
+
+.border-above
+{
+  border-top: 2px solid rgb(223, 211, 211);
+}
+.web-designer
+{
+  width:100px;
+  height: 100px;
+  border-radius: 25px;
+  float: right;
+  margin-top: 80px;
+  margin-right: 10px;
+  padding-left:5px;
+  justify-content: space-between;
+ 
+  
+}

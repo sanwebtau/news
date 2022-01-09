@@ -1,0 +1,69 @@
+/*
+for running script
+* add script tag with data-elementId, data-width, and data-type
+* data-type options LIGHT and Dark , default is Dark 
+* there must be element with element id of data-id in html file where users wants to load esewa lo
+
+changes needed before uploading to cdn
+1. replace script[src="script.js"] with script[src="{{cdnUrl}}"]
+2. replace darkEsewaLogo value with actual cdn url for dark esewa logo
+3. replace lightEsewaLogo value with actual cdn url for light esewa logo
+*/
+
+(function(window) {
+	var scriptTag = document.querySelector('script[src="https://cdn.esewa.com.np/ui/js/eSewa_logo/script.js"]'), //  replace src="script.js" with script[src="{{cdnUrl}}"
+		widthOfImage = scriptTag.dataset.width,
+		logoLoadingId = scriptTag.dataset.elementid;
+
+	var darkEsewaLogo = 'https://esewa.com.np/common/images/esewa-logo.png', //replace with actual cdn url for dark esewa logo
+		lightEsewaLogo = 'https://esewa.com.np/common/images/esewa_logo.png', // replace with actual cdn url for light esewa logo
+		eSewaLogo = scriptTag.dataset.type == 'LIGHT' ? lightEsewaLogo : darkEsewaLogo;
+
+	var imgDiv = createElement('img', 'eSewaLogo', {
+		'src': eSewaLogo,
+		'style': 'width:'+widthOfImage+'; height: auto;',
+		'alt': 'eSewaLogo'
+	});
+	var anchorTag = createElement('a', 'eSewaAnchorTag', {
+		'href': 'https:esewa.com.np',
+		'target': '_blank',
+		'style': 'position:relative'
+	}, imgDiv, true);
+
+	function createElement(element, elementId, attribute, inner, loadElement) {
+		if (typeof(element) === "undefined") {
+			return false;
+		}
+		if (typeof(inner) === "undefined") {
+			inner = "";
+		}
+		var el = document.createElement(element);
+		el.id = elementId;
+
+		if (typeof(attribute) === 'object') {
+			for (var key in attribute) {
+				el.setAttribute(key, attribute[key]);
+			}
+		}
+		if (!Array.isArray(inner)) {
+			inner = [inner];
+		}
+		for (var k = 0; k < inner.length; k++) {
+			if (inner[k].tagName) {
+				el.appendChild(inner[k]);
+			} else {
+				el.appendChild(document.createTextNode(inner[k]));
+			}
+		}
+
+		if (loadElement && logoLoadingId) {
+			document.addEventListener('DOMContentLoaded', function() {
+				document.getElementById(logoLoadingId).append(el);
+			});
+		} else if (!loadElement) {
+			return el;
+		} else {
+			return false;
+		}
+	}
+})();
